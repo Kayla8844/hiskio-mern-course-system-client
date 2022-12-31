@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
+import Course from "./components/Course";
 
 import AuthService from "./services/auth";
 
@@ -27,6 +28,9 @@ function App() {
         </Route>
         <Route path="/profile" exact>
           <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />
+        </Route>
+        <Route path="/course" exact>
+          <Course currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </Route>
       </Switch>
     </div>

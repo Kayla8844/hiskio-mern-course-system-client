@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import AuthService from "../services/auth";
 
 const LoginComponent = (props) => {
-  let { currentUser, setCurrentUser } = props;
+  let { setCurrentUser } = props;
 
   const history = useHistory();
   let [email, setEmail] = useState("");
