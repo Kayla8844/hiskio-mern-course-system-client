@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Nav from "./components/Nav";
 import Home from "./components/Home";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Home />
+        </Route>
+        <Route path="/register" exact>
+          <Register />
         </Route>
       </Switch>
     </div>
