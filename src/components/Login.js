@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import AuthService from "../services/auth";
 
-const LoginComponent = () => {
+const LoginComponent = (props) => {
+  let { currentUser, setCurrentUser } = props;
+
   const history = useHistory();
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
@@ -21,6 +23,11 @@ const LoginComponent = () => {
         if (res.data.token) {
           localStorage.setItem("user", JSON.stringify(res.data));
         }
+
+        window.alert(
+          "Login successfully, you are redirected to the profile page."
+        );
+        setCurrentUser(AuthService.getCurrentUser());
         history.push("/profile");
       })
       .catch((err) => {
