@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Course from "./components/Course";
 import PostCourse from "./components/PostCourse";
+import Enroll from "./components/Enroll";
 
 import AuthService from "./services/auth";
 
@@ -38,6 +39,9 @@ function App() {
             currentUser={currentUser}
             setCurrentUser={setCurrentUser}
           />
+        </Route>
+        <Route path="/enroll" exact>
+          <Enroll currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </Route>
       </Switch>
     </div>

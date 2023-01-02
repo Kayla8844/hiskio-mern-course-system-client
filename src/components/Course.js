@@ -20,14 +20,25 @@ const Course = (props) => {
       _id = "";
     }
 
-    CourseService.get(_id)
-      .then((data) => {
-        console.log(data);
-        setCourseData(data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (currentUser.user.role === "instructor") {
+      CourseService.get(_id)
+        .then((data) => {
+          console.log(data);
+          setCourseData(data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else if (currentUser.user.role === "student") {
+      CourseService.getEnrolledCourses(_id)
+        .then((data) => {
+          console.log(data);
+          setCourseData(data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, []);
 
   return (
